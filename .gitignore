@@ -1,0 +1,7 @@
+.ipynb_checkpoints/
+.venv/
+dask-worker-space/
+*.twbr
+.DS_Store
+.idea/
+__pycache__/
