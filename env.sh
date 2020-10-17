@@ -1,0 +1,2 @@
+export MONGODB_HOST=localhost
+export MONGODB_PORT=27017
