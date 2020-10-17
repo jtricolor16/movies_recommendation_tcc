@@ -89,7 +89,7 @@ Todas as requisições utilizam o método **GET** do protocolo http.
 Busca de filmes com base no id da obra.
 
 <details>
-    <summary>Clique para mais informações sobre requisições a **/movies/id**</summary>
+    <summary>Clique para mais informações sobre requisições a /movies/id</summary>
 
 Exemplo de request: `curl localhost:5000/movies/1`
 
@@ -189,7 +189,7 @@ Exemplo de retorno:
 Realiza a busca por filmes com base no título da obra.
 
 <details>
-    <summary>Clique para mais informações sobre requisições a **/movies/search?q={VALOR}**</summary>
+    <summary>Clique para mais informações sobre requisições a /movies/search?q={VALOR}</summary>
 
 O valor correspondente ao título deve ser passado na query string **q**
 
