@@ -18,7 +18,11 @@ Após clonar o repositório, execute o comando abaixo para subir os containers
 docker-compose up 
 ```
 
-Feito isso, acesse o notebook através do endereço **http://localhost:8888/**, acessando o notebook **modelo_recomendacao.ipynb**.
+Feito isso, acesse o notebook através do endereço **http://localhost:8888/**. 
+
+O container solicitará um token. Pegue o valor presente em **JUPYTER_TOKEN**, no arquivo **env.sh**.
+
+Acesse o notebook **modelo_recomendacao.ipynb**.
 
 Após executar todas as células do notebook, você estará apto a utilizar o serviço de recomendação.
 

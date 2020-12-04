@@ -11,3 +11,5 @@ mongo-data/
 .ipython/
 .local/
 env.sh
+jupyter_recommendation/.jupyter/
+
