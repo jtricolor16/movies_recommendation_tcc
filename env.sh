@@ -1,2 +1,5 @@
-export MONGODB_HOST=localhost
+export MONGODB_HOST=mongo
 export MONGODB_PORT=27017
+export MONGO_INITDB_ROOT_USERNAME=root
+export MONGO_INITDB_ROOT_PASSWORD=MongoDB2019!
+export JUPYTER_TOKEN=tcc

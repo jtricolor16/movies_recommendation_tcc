@@ -1,31 +1,31 @@
 version: '3'
 
 services:
-  mongo-express:
-    image: mongo-express
+  recommendation:
+    build: ./recommendation
     ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_BASICAUTH_USERNAME: moviesrecommendation
-      ME_CONFIG_BASICAUTH_PASSWORD: MongoExpress2019!
-      ME_CONFIG_MONGODB_PORT: 27017
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: MongoDB2019!
+      - "5000:5000"
     links:
       - mongo
-    networks:
-      - mongo-compose-network
+    env_file:
+      - env.sh
 
   mongo:
     image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: MongoDB2019!
+    env_file:
+      - env.sh
     ports:
       - "27017:27017"
-    networks:
-      - mongo-compose-network
+    volumes:
+      - "./mongo-data:/data/db"
 
-networks: 
-    mongo-compose-network:
-      driver: bridge
+  jupyter:
+    build: ./jupyter_recommendation
+    ports:
+      - "8888:8888"
+    links:
+      - mongo
+    env_file:
+      - env.sh
+    volumes:
+      - "./jupyter_recommendation:/home/jovyan"

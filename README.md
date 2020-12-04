@@ -7,76 +7,20 @@ Nas seções a seguir, serão mostrados os passos necessários para instalar tod
 Ressalta-se que o projeto foi desenvolvido utilizando um sistema operacional derivado do Unix. Por isso, o passo a passo listado tende a se portar bem em dispositivos **Linux** e **MacOs**.
 
 ## PRÉ-REQUISITOS:
-- Python 3 ou mais;
+- Docker;
 - Tableau para visualizar os dados de forma mais interativa.
-- MongoDB.
 
 ## INSTALAÇÃO
 
-Crie um ambiente virtual usando o comando venv
+Após clonar o repositório, execute o comando abaixo para subir os containers
 
 ```
-python3 -m venv NOME_DO_SEU_AMBIENTE_VIRTUAL 
+docker-compose up 
 ```
 
-Para ativá-lo, execute:
+Feito isso, acesse o notebook através do endereço **http://localhost:8888/**, acessando o notebook **modelo_recomendacao.ipynb**.
 
-```
-source NOME_DO_SEU_AMBIENTE_VIRTUAL/bin/activate
-```
-
-Instale o ipykernel para utilizarmos o Jupyter Notebook em um ambiente controlado:
-
-```
-pip install ipykernel
-```
-
-Instale um novo Kernel para trabalharmos no ambiente controlado, em vez de utilizar as dependências do sistema
-
-```
-ipython kernel install --user --name=NOME_DO_KERNEL
-```
-
-Abra o Jupyter Notebook e selecione o seu ambiente em *New button*, selecionando a opção **NOME_DO_KERNEL**.
-
-```
-jupyter notebook
-``` 
-
-Instale as dependências do serviço e do modelo de recomendação através do comando a seguir:
-
-```
-pip install -r requirements.txt
-```
-
-Outro ponto necessário é configurar o banco de dados documental MongoDB. Para tal há duas opções:
-- Seguindo o passo a passo da [página oficial do MongoDB](https://docs.mongodb.com/manual/installation/).
-- Utilizando o **docker-compose.yml** presente neste projeto. Caso opte por esta opção, [siga o passo a passo desta documentação](https://medium.com/@renato.groffe/mongodb-mongo-express-docker-compose-montando-rapidamente-um-ambiente-para-uso-824f25ca6957
-). Inclusive o próprio docker-compose foi extraído das dicas apresentadas na página referenciada.
-
-## COMO RODAR O SERVIÇO DE RECOMENDAÇÃO
-
-Antes de iniciar o processo de configuração do serviço de recomendação, é de suma importância que você já tenha executado todas as células do arquivo **modelo_recomendacao.ipynb**. Isso porque ele será o responsável por salvar os dados de filmes recomendados no MongoDB.
-
-Outro passo fundamental é se certificar que as env vars **MONGODB_HOST** e **MONGODB_PORT** estão populadas com os valores correspondentes ao endereço do MongoDB e a sua respectiva porta. Aconselha-se utilizar o arquivo env.sh e executar o seguinte comando:
-
-```
-source env.sh
-```
-
-Com todos esses passos executados, basta rodar os seguintes comandos:
-
-```
-set FLASK_APP=servico_recomendacao.py
-```
-
-e
-
-```
-python -m flask run
-```
-
-Com isso, o serviço deverá ser hospedado localmente.
+Após executar todas as células do notebook, você estará apto a utilizar o serviço de recomendação.
 
 ## REALIZAR REQUISIÇÕES AO SERVIÇO DE RECOMENDAÇÃO
 

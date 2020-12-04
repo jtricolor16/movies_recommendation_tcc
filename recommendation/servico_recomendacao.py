@@ -6,7 +6,9 @@ from bson.json_util import dumps, loads
 
 app = Flask(__name__)
 
-mongo_client = MongoClient(os.environ["MONGODB_HOST"], int(os.environ["MONGODB_PORT"]))
+mongo_client = mongo_client = MongoClient(f'mongodb://{os.environ["MONGO_INITDB_ROOT_USERNAME"]}'
+                                          f':{os.environ["MONGO_INITDB_ROOT_PASSWORD"]}'
+                                          f'@{os.environ["MONGODB_HOST"]}')
 movies_db = mongo_client.movies_recommendation
 col = movies_db.recommendation
 success = 200
@@ -28,3 +30,7 @@ def search():
     movies = dumps(col.find({"title": regx}))
     response_search = {"movies": loads(movies)}
     return response_search, success
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", debug=False)

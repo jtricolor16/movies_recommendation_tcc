@@ -5,3 +5,9 @@ dask-worker-space/
 .DS_Store
 .idea/
 __pycache__/
+mongo-data/
+.cache/
+.config
+.ipython/
+.local/
+env.sh
